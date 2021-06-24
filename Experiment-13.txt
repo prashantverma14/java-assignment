@@ -1,0 +1,31 @@
+class InsertionSort {
+
+    public static <T extends Comparable<T>> void sort(T[] table) {
+        for (int nextPos = 1; nextPos < table.length; nextPos++) {
+
+            insert(table, nextPos);
+        }
+        for(T elements : table){
+            System.out.println(elements);
+        }
+    }
+    private static <T extends Comparable<T>> void insert(T[] table,
+                                                         int nextPos) {
+        T nextVal = table[nextPos];
+
+        while (nextPos > 0 && nextVal.compareTo(table
+                [nextPos-1]) < 0) {
+            table[nextPos] = table[nextPos-1];
+
+            nextPos--;
+
+        }
+
+        table[nextPos] = nextVal;
+    }
+
+    public static void main(String[] args) {
+        Integer[] table = {2,1,3,4,9,5,6,8};
+        sort(table);
+    }
+}
